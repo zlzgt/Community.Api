@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EInfrastructure.Core.Config.EntitiesExtensions" Version="2.0.0" />
+    <PackageReference Include="EInfrastructure.Core.Configuration" Version="2.3.6" />
+    <PackageReference Include="EInfrastructure.Core.MySql" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Community.Domain\Community.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

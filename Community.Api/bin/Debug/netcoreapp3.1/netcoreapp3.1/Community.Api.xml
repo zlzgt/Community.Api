@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Community.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Community.Api.AppData.ConfigureAutofac">
+            <summary>
+            Autofac配置类
+            </summary>
+        </member>
+        <member name="M:Community.Api.AppData.ConfigureAutofac.Load(Autofac.ContainerBuilder)">
+            <summary>
+            注册配置类
+            </summary>
+            <param name="containerBuilder"></param>
+        </member>
+        <member name="T:Community.Api.Attribute.ApiExceptionFilterAttribute">
+            <summary>
+            api异常统一处理过滤器
+            系统级别异常 500 应用级别异常501
+            </summary>
+        </member>
+        <member name="M:Community.Api.Attribute.ApiExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            处理程序中的异常
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Community.Api.Attribute.ApiExceptionFilterAttribute.BuildExceptionResult(System.Exception)">
+            <summary>
+            包装处理异常格式
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Attribute.ApiResponseFilterAttribute">
+            <summary>
+            Api action统一处理过滤器
+            </summary>
+        </member>
+        <member name="M:Community.Api.Attribute.ApiResponseFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            对Action的参数进行校验
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Community.Api.Attribute.ApiResponseFilterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            处理正常返回的结果对象，进行统一json格式包装
+            异常只能交由ExceptionFilterAttribute 去处理 
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Community.Api.Controllers.AccountController">
+            <summary>
+            用户账号管理
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.Login(Community.Domain.Model.Userers.Param.LoginParam)">
+            <summary>
+            用户登录测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.Register(Community.Application.ApiModel.RegisterUserDto)">
+            <summary>
+            用户注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Controllers.ArticleController">
+            <summary>
+            文章管理
+            </summary>
+        </member>
+        <member name="F:Community.Api.Controllers.ArticleController._ArticleService">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Application.IServices.IArticleService)">
+            <summary>
+            构造函数注入
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.ArticleController.PubArticle(Community.Application.ApiModel.PubArticleModel)">
+            <summary>
+            文章发布或保存草稿
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.ArticleController.Articles(Community.Infrastructure.PageModel)">
+            <summary>
+            获取文章列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Community.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+             创建主机
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Startup">
+            <summary>
+            WebApi启动类
+            </summary>
+        </member>
+        <member name="M:Community.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册服务到容器
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Community.Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+             使用Autofac依赖注入
+            </summary>
+            <param name="containerBuilder"></param>
+        </member>
+        <member name="M:Community.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+             配置HTTP请求管道
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
