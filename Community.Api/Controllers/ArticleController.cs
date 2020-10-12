@@ -18,7 +18,7 @@ namespace Community.Api.Controllers
     /// <summary>
     /// 文章管理
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class ArticleController : ControllerBase
     {
@@ -53,7 +53,8 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [HttpPost("PubArticle")]
+        [HttpPost]
+        [Route("pubArticle")]
         //[Authorize]
         public ActionResult<ReplyModel> PubArticle([FromBody] PubArticleModel msg)
         {
@@ -110,7 +111,8 @@ namespace Community.Api.Controllers
         /// 获取文章列表
         /// </summary>
         /// <returns></returns>
-        [HttpPost("Articles")]
+        [HttpPost]
+        [ActionName("articles")]
         public ActionResult<ReplyModel> Articles([FromBody] PageModel msg)
         {
             ReplyModel reply = new ReplyModel();
@@ -157,7 +159,8 @@ namespace Community.Api.Controllers
         /// 获取文章详情
         /// </summary>
         /// <returns></returns>
-        [HttpGet("ArticleDetail")]
+        [HttpGet]
+        [Route("detail")]
         public ActionResult<ReplyModel> ArticleDetail(string id)
         {
             ReplyModel reply = new ReplyModel();

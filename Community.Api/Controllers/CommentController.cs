@@ -18,7 +18,7 @@ namespace Community.Api.Controllers
     /// <summary>
     /// 评论
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class CommentController : ControllerBase
     {
@@ -49,7 +49,8 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [HttpPost("Comments")]
+        [HttpPost]
+        [ActionName("comments")]
         public ActionResult<ReplyModel> Comments([FromBody]CommentsParam msg)
         {
             ReplyModel reply = new ReplyModel();
@@ -90,7 +91,8 @@ namespace Community.Api.Controllers
         /// 提交评论
         /// </summary>
         /// <returns></returns>
-        [HttpPost("SubComment")]
+        [HttpPost]
+        [ActionName("subcomment")]
         public ActionResult<ReplyModel> SubComment([FromBody]SubCommentParam msg)
         {
             ReplyModel reply = new ReplyModel();

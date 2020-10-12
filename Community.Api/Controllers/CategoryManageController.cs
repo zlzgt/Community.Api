@@ -16,7 +16,7 @@ namespace Community.Api.Controllers
     /// <summary>
     /// 分类管理
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class CategoryManageController : ControllerBase
     {

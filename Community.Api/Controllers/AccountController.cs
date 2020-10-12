@@ -24,7 +24,7 @@ namespace Community.Api.Controllers
     /// <summary>
     /// 用户账号管理
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -60,8 +60,9 @@ namespace Community.Api.Controllers
         /// 用户登录测试
         /// </summary>
         /// <returns></returns>
-        [HttpPost("Login")]
+        [HttpPost]
         [AllowAnonymous]
+        [ActionName("login")]
         public ActionResult<ReplyModel> Login([FromBody] LoginParam msg)
         {
             return _userService.Login(msg);
@@ -73,8 +74,9 @@ namespace Community.Api.Controllers
         /// 用户注册
         /// </summary>
         /// <returns></returns>
-        [HttpPost("Register")]
+        [HttpPost]
         [AllowAnonymous]
+        [ActionName("register")]
         public ActionResult<ReplyModel> Register([FromBody] RegisterUserDto userDto)
         {
             return _userService.Register(userDto, ServiceProvider);
@@ -86,7 +88,8 @@ namespace Community.Api.Controllers
         /// 获取注册人排行
         /// </summary>
         /// <returns></returns>
-        [HttpPost("UserSort")]
+        [HttpPost]
+        [ActionName("usersort")]
         public ActionResult<ReplyModel> UserSort([FromBody]PageModel msg)
         {
             return _userService.UserSort(msg);

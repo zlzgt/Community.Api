@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Community.Infrastructure\Community.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\Articles\Entity\" />
+    <Folder Include="Model\Userers\Entity\" />
+  </ItemGroup>
+
 </Project>

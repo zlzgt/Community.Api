@@ -45,7 +45,7 @@ namespace Community.Domain
         ///  添加时间
         /// </summary>
         public DateTime AddTime { get; set; }
-
+      
         /// <summary>
         /// 用户评论
         /// </summary>

@@ -13,6 +13,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
+using Castle.Core.Logging;
+using Microsoft.Extensions.Logging;
+
 namespace Community.Application.Services
 {
     /// <summary>
@@ -23,14 +26,18 @@ namespace Community.Application.Services
         #region 属性
         private readonly IUserRepository _userRepository;
 
+        //使用日志组件
+        private readonly ILogger<UserService> _logger;
+
         #endregion
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="userRepository"></param>
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository,ILogger<UserService> logger)
         {
             _userRepository = userRepository;
+            _logger = logger;
         }
 
 
@@ -42,9 +49,10 @@ namespace Community.Application.Services
         /// <returns></returns>
         public ReplyModel Login(LoginParam loginParam)
         {
+            _logger.LogInformation("登录日志信息记录");
             ReplyModel reply = new ReplyModel();
             loginParam.Password = MD5Encrypt.Encrypt(loginParam.Password);
-            Users user = _userRepository.Get(loginParam);
+            Users user =Users.Get(_userRepository,loginParam);
             if (user == null)
             {
                 reply.Msg = "未找到用户信息";
@@ -72,17 +80,10 @@ namespace Community.Application.Services
             if (userDto.Password == userDto.RepeatPassword)
             {
                 Expression<Func<Users, bool>> func = w => w.UserName == userDto.UserName;
-                Users user = _userRepository.Get(func);
+                Users user =Users.Get(_userRepository, func);
                 if (user == null)
                 {
-                    Users newCUsers = new Users();
-                    newCUsers.AddTime = DateTime.Now;
-                    newCUsers.Email = userDto.Email;
-                    newCUsers.NickName = userDto.NickName;
-                    newCUsers.Password = MD5Encrypt.Encrypt(userDto.Password);
-                    newCUsers.Tel = userDto.Tel;
-                    newCUsers.UserName = userDto.UserName;
-                    _userRepository.Set(newCUsers);
+                    Users.Register(_userRepository, userDto.UserName,userDto.Email,userDto.Password,userDto.NickName,userDto.Tel);
                     bool result = serviceProvider.GetService<IUnitOfWork>().Commit();
                     if (result)
                     {
@@ -137,7 +138,6 @@ namespace Community.Application.Services
                                         group by UserId, NickName
                                         ORDER BY COUNT(UserID) DESC) as UserArticle
                                     LIMIT {(msg.PageIndex - 1) * msg.PageSize}, {msg.PageSize}";
-
 
                 List<RUserSortModel> userSorts = _userRepository.SqlQuery<RUserSortModel>(mySql).ToList();
                 if (userSorts.Any())

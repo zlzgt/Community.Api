@@ -1,6 +1,8 @@
 ﻿using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using Community.Domain.Model.Common.Interfaces;
 using Community.Domain.Model.Userers.Param;
+using Community.Infrastructure;
+using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -31,7 +33,7 @@ namespace Community.Domain
         /// <param name="userRepository"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Users Get(IUserRepository userRepository,string id)
+        public static Users Get(IUserRepository userRepository, string id)
         {
             return userRepository.Get(id);
         }
@@ -53,19 +55,25 @@ namespace Community.Domain
 
         #region 用户注册信息
         /// <summary>
-        /// 用户注册信息
+        /// 注册用户信息
         /// </summary>
         /// <returns></returns>
-        public static bool Set(IUserRepository userRepository,Users users)
+        public static bool Register(IUserRepository userRepository, string userName, string email, string password, string nickName, string Tel)
         {
-            return userRepository.Set(users);
+            Users user = new Users();
+            user.AddTime = DateTime.Now;
+            user.Email = email;
+            user.NickName = nickName;
+            user.Password = MD5Encrypt.Encrypt(password);
+            user.Tel = Tel;
+            user.UserName = userName;
+            return userRepository.Set(user);
         }
         #endregion
 
 
 
-
-
+ 
 
 
 

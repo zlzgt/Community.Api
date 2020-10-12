@@ -72,10 +72,11 @@ namespace Community.Reposity.MySql.Infrastructure.Common
         /// </summary>
         /// <param name="users"></param>
         /// <returns></returns>
-        public Boolean Set(Domain.Users users)
+        public bool Set(Domain.Users users)
         {
             base.Dbcontext.Set<Users>().Add(users);
             return true;
+
         }
 
         /// <summary>
