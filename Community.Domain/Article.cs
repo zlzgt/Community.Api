@@ -12,7 +12,7 @@ namespace Community.Domain
     /// 文章
     /// </summary>
     [Table("Article")]
-    public class Article : AggregateRoot<string>
+    public partial class Article : AggregateRoot<string>
     {
         /// <summary>
         /// 主键

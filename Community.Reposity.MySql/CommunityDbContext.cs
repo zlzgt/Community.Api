@@ -8,7 +8,7 @@ using System.Threading;
 using EInfrastructure.Core.MySql;
 using System.Linq;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
-namespace Community.Domain
+namespace Community.Reposity.MySql
 {
     public class CommunityDbContext : DbContext, IUnitOfWork, IPerRequest
     {
@@ -26,7 +26,7 @@ namespace Community.Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=18338149719;", w => w.MaxBatchSize(30));
+            optionsBuilder.UseMySql("Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=root;", w => w.MaxBatchSize(30));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace Community.Domain
             // <summary>
             /// mySql connection string
             /// </summary>
-            public string DbConn { get; set; } = "Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=18338149719;";
+            public string DbConn { get; set; } = "Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=root;";
 
             /// <summary>
             /// enable mysql log

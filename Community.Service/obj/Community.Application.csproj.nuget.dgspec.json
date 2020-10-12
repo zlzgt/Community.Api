@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#解决方案\\Community.Api\\Community.Service\\Community.Application.csproj": {}
+    "F:\\Community.Api\\Community.Api\\Community.Service\\Community.Application.csproj": {}
   },
   "projects": {
-    "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
+    "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj",
+        "projectUniqueName": "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj",
         "projectName": "Community.Domain",
-        "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj",
-        "packagesPath": "C:\\Users\\11645\\.nuget\\packages\\",
-        "outputPath": "D:\\C#解决方案\\Community.Api\\Community.Domain\\obj\\",
+        "projectPath": "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\Community.Api\\Community.Api\\Community.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\11645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,11 +25,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "http://packagesource": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/henanyoutaidu/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -84,24 +90,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
+    "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj",
+        "projectUniqueName": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj",
         "projectName": "Community.Infrastructure",
-        "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\11645\\.nuget\\packages\\",
-        "outputPath": "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\obj\\",
+        "projectPath": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\11645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -109,7 +115,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "http://packagesource": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/henanyoutaidu/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -158,24 +166,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj": {
+    "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj",
+        "projectUniqueName": "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj",
         "projectName": "Community.Reposity.MySql",
-        "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj",
-        "packagesPath": "C:\\Users\\11645\\.nuget\\packages\\",
-        "outputPath": "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\obj\\",
+        "projectPath": "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\11645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -183,13 +191,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "http://packagesource": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/henanyoutaidu/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
-                "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj"
+              "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj"
+              },
+              "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj"
               }
             }
           }
@@ -228,6 +241,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
             }
           },
           "imports": [
@@ -240,24 +257,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#解决方案\\Community.Api\\Community.Service\\Community.Application.csproj": {
+    "F:\\Community.Api\\Community.Api\\Community.Service\\Community.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#解决方案\\Community.Api\\Community.Service\\Community.Application.csproj",
+        "projectUniqueName": "F:\\Community.Api\\Community.Api\\Community.Service\\Community.Application.csproj",
         "projectName": "Community.Application",
-        "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Service\\Community.Application.csproj",
-        "packagesPath": "C:\\Users\\11645\\.nuget\\packages\\",
-        "outputPath": "D:\\C#解决方案\\Community.Api\\Community.Service\\obj\\",
+        "projectPath": "F:\\Community.Api\\Community.Api\\Community.Service\\Community.Application.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\Community.Api\\Community.Api\\Community.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\11645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -265,19 +282,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "http://packagesource": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/henanyoutaidu/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
-                "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Domain\\Community.Domain.csproj"
+              "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj"
               },
-              "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
-                "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj"
+              "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Infrastructure\\Community.Infrastructure.csproj"
               },
-              "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj": {
-                "projectPath": "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj"
+              "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj": {
+                "projectPath": "F:\\Community.Api\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj"
               }
             }
           }
@@ -326,7 +345,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

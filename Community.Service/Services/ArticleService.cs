@@ -9,27 +9,27 @@ using System.Text;
 
 namespace Community.Application.Services
 {
-    public class ArticleService:IArticleService
+    public class ArticleService
     {
 
-        private readonly CommunityDbContext _CommunityDbContext;
-        /// <summary>
-        /// 构造函数注入
-        /// </summary>
-        public ArticleService(CommunityDbContext dbContext)
-        {
-            this._CommunityDbContext = dbContext;
-        }
+        //private readonly CommunityDbContext _CommunityDbContext;
+        ///// <summary>
+        ///// 构造函数注入
+        ///// </summary>
+        //public ArticleService(CommunityDbContext dbContext)
+        //{
+        //    this._CommunityDbContext = dbContext;
+        //}
 
-        public ReplyModel Articles(PageModel msg)
-        {
-            throw new NotImplementedException();
-        }
+        //public ReplyModel Articles(PageModel msg)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public ReplyModel PubArticle(PubArticleModel msg)
-        {
-            throw new NotImplementedException();
-        }
+        //public ReplyModel PubArticle(PubArticleModel msg)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         /// <summary>
         /// 文章发布或保存草稿

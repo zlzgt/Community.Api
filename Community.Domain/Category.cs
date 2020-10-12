@@ -1,4 +1,4 @@
-﻿using Abp.Domain.Entities;
+﻿using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,7 @@ namespace Community.Domain
     ///  标签分类
     /// </summary>
     [Table("Category")]
-    public class Category: AggregateRoot<string>
+    public partial class Category: AggregateRoot<string>
     {
        
         /// <summary>

@@ -1,4 +1,4 @@
-﻿using Abp.Domain.Entities;
+﻿using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +13,6 @@ namespace Community.Domain
     [Table("Comment")]
     public class Comment : AggregateRoot<string>
     {
-     
         /// <summary>
         /// 主键
         /// </summary>
@@ -24,7 +23,7 @@ namespace Community.Domain
         /// <summary>
         /// 文章Id
         /// </summary>
-        public int ArticleId { get; set; }
+        public string ArticleId { get; set; }
         /// <summary>
         /// 评论内容
         /// </summary>
