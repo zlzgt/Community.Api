@@ -57,7 +57,12 @@
             用户账号管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService)">
+        <member name="F:Community.Api.Controllers.AccountController._logger">
+            <summary>
+            使用日志组件
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService,Microsoft.Extensions.Logging.ILogger{Community.Api.Controllers.AccountController})">
             <summary>
             构造函数
             </summary>

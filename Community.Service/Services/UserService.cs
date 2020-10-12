@@ -24,8 +24,6 @@ namespace Community.Application.Services
         private readonly IUserRepository _userRepository;
 
         #endregion
-
-
         /// <summary>
         /// 构造函数
         /// </summary>

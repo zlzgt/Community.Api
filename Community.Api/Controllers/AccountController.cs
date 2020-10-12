@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Community.Api.Controllers
 {
@@ -27,12 +28,16 @@ namespace Community.Api.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-
         #region 属性
         private readonly IUserRepository _userRepository;
         protected IServiceProvider ServiceProvider => Request.HttpContext.RequestServices;
 
         private readonly IUserService _userService;
+
+       /// <summary>
+       /// 使用日志组件
+       /// </summary>
+        private readonly ILogger<AccountController>  _logger;
 
         #endregion
 
@@ -42,10 +47,11 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="userRepository"></param>
         /// <param name="userService"></param>
-        public AccountController(IUserRepository userRepository, IUserService userService)
+        public AccountController(IUserRepository userRepository, IUserService userService,ILogger<AccountController> logger)
         {
             _userRepository = userRepository;
             _userService = userService;
+            _logger = logger;
         }
         #endregion
 
@@ -95,6 +101,7 @@ namespace Community.Api.Controllers
         [HttpGet("Test")]
         public ActionResult<string> Test()
         {
+            _logger.LogInformation("log4net日志的使用");
             return _userService.Test();
         }
         #endregion 

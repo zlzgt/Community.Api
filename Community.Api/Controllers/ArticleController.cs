@@ -22,7 +22,6 @@ namespace Community.Api.Controllers
     [ApiController]
     public class ArticleController : ControllerBase
     {
-
         #region 属性
         private readonly IArticleRepository _articleRepository;
 
