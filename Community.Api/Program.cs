@@ -27,6 +27,13 @@ namespace Community.Api
         /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+               .ConfigureLogging((context, loggingBuilder) =>
+               {
+                   loggingBuilder.AddFilter("System", LogLevel.Warning);
+                   loggingBuilder.AddFilter("Microsoft", LogLevel.Warning);
+                   var path = context.HostingEnvironment.ContentRootPath;
+                   loggingBuilder.AddLog4Net($"{path}/log4net.config");//ÅäÖÃÎÄ¼þ
+               })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

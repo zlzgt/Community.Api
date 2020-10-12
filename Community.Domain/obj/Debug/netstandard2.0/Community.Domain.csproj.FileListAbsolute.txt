@@ -16,3 +16,15 @@ F:\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.pdb
 F:\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csproj.CoreCompileInputs.cache
 D:\C#解决方案\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csprojAssemblyReference.cache
 F:\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csprojAssemblyReference.cache
+F:\Community.Api\Community.Api\Community.Domain\bin\Debug\netstandard2.0\Community.Domain.deps.json
+F:\Community.Api\Community.Api\Community.Domain\bin\Debug\netstandard2.0\Community.Domain.dll
+F:\Community.Api\Community.Api\Community.Domain\bin\Debug\netstandard2.0\Community.Domain.pdb
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csprojAssemblyReference.cache
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csproj.CoreCompileInputs.cache
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.AssemblyInfoInputs.cache
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.AssemblyInfo.cs
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.dll
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.pdb
+F:\Community.Api\Community.Api\Community.Domain\bin\Debug\netstandard2.0\Community.Infrastructure.dll
+F:\Community.Api\Community.Api\Community.Domain\bin\Debug\netstandard2.0\Community.Infrastructure.pdb
+F:\Community.Api\Community.Api\Community.Domain\obj\Debug\netstandard2.0\Community.Domain.csproj.CopyComplete

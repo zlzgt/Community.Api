@@ -14,6 +14,7 @@ using Community.Domain;
 using Community.Infrastructure;
 using Autofac;
 using Community.Api.AppData;
+using Community.Reposity.MySql;
 
 namespace Community.Api
 {

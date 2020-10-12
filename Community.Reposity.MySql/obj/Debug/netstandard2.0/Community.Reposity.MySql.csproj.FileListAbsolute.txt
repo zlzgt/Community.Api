@@ -22,3 +22,17 @@ D:\C#解决方案\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.
 D:\C#解决方案\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.dll
 D:\C#解决方案\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.pdb
 D:\C#解决方案\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.csproj.CoreCompileInputs.cache
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Reposity.MySql.deps.json
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Reposity.MySql.dll
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Reposity.MySql.pdb
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Domain.dll
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Domain.pdb
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.csprojAssemblyReference.cache
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.AssemblyInfoInputs.cache
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.AssemblyInfo.cs
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.csproj.CopyComplete
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.dll
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.pdb
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.dll
+F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.pdb
+F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.csproj.CoreCompileInputs.cache

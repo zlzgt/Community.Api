@@ -39,11 +39,13 @@ namespace Community.Api.AppData
             #endregion
 
             #region 方法2  选择性注入 与方法1 一样
-            //Assembly IRepository = Assembly.Load("Community.Domain");
-            //Assembly Repository = Assembly.Load("Community.Reposity.MySql");
-            //containerBuilder.RegisterAssemblyTypes(Repository,IRepository)
-            //.Where(t => t.Name.EndsWith("Repository"))
-            //.AsImplementedInterfaces().PropertiesAutowired();
+
+            Assembly service = Assembly.Load("Community.Application");
+            Assembly Iservice = Assembly.Load("Community.Application");
+            containerBuilder.RegisterAssemblyTypes(service, Iservice)
+           .Where(t => t.Name.EndsWith("Service"))
+           .AsImplementedInterfaces().PropertiesAutowired();
+
 
             //            Assembly service = Assembly.Load("Exercise.Services");
             //            Assembly Iservice = Assembly.Load("Exercise.IServices");
@@ -67,9 +69,9 @@ namespace Community.Api.AppData
 
             #region 在控制器中使用属性依赖注入，其中注入属性必须标注为public
             //在控制器中使用属性依赖注入，其中注入属性必须标注为public
-            //var controllersTypesInAssembly = typeof(Startup).Assembly.GetExportedTypes()
-            //.Where(type => typeof(Microsoft.AspNetCore.Mvc.ControllerBase).IsAssignableFrom(type)).ToArray();
-            //containerBuilder.RegisterTypes(controllersTypesInAssembly).PropertiesAutowired();
+            var controllersTypesInAssembly = typeof(Startup).Assembly.GetExportedTypes()
+            .Where(type => typeof(Microsoft.AspNetCore.Mvc.ControllerBase).IsAssignableFrom(type)).ToArray();
+            containerBuilder.RegisterTypes(controllersTypesInAssembly).PropertiesAutowired();
             #endregion
 
 

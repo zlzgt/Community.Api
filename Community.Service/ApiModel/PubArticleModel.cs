@@ -46,7 +46,7 @@ namespace Community.Application.ApiModel
         /// <summary>
         /// 用户Id
         /// </summary>
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         /// <summary>
         /// 是否是草稿 0 是 1 不是

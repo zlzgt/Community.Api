@@ -13,9 +13,9 @@ namespace Community.Reposity.MySql.Map
         public void Map(EntityTypeBuilder<Article> builder)
         {
             builder.ToTable("Community_Article");
-            builder.HasKey("Id");
+            builder.HasKey(x=>x.Id);
             builder.Property("UserId");
-            builder.Property("NickName");
+            builder.Property(w=>w.NickName);
             builder.Property("Title");
             builder.Property("IsDraft");
             builder.Property("Content");

@@ -57,11 +57,17 @@
             用户账号管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository)">
+        <member name="F:Community.Api.Controllers.AccountController._logger">
+            <summary>
+            使用日志组件
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService,Microsoft.Extensions.Logging.ILogger{Community.Api.Controllers.AccountController})">
             <summary>
             构造函数
             </summary>
             <param name="userRepository"></param>
+            <param name="userService"></param>
         </member>
         <member name="M:Community.Api.Controllers.AccountController.Login(Community.Domain.Model.Userers.Param.LoginParam)">
             <summary>
@@ -75,20 +81,28 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Community.Api.Controllers.AccountController.UserSort(Community.Infrastructure.PageModel)">
+            <summary>
+            获取注册人排行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.Test">
+            <summary>
+            依赖注入测试
+            </summary>
+        </member>
         <member name="T:Community.Api.Controllers.ArticleController">
             <summary>
             文章管理
             </summary>
         </member>
-        <member name="F:Community.Api.Controllers.ArticleController._ArticleService">
-            <summary>
-            用户服务
-            </summary>
-        </member>
-        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Application.IServices.IArticleService)">
+        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Domain.Model.Common.Interfaces.IArticleRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Domain.Model.Common.Interfaces.ICommentRepository)">
             <summary>
             构造函数注入
             </summary>
+            <param name="articleRepository">文章仓储</param>
+            <param name="userRepository">用户仓储</param>
         </member>
         <member name="M:Community.Api.Controllers.ArticleController.PubArticle(Community.Application.ApiModel.PubArticleModel)">
             <summary>
@@ -100,6 +114,61 @@
         <member name="M:Community.Api.Controllers.ArticleController.Articles(Community.Infrastructure.PageModel)">
             <summary>
             获取文章列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.ArticleController.ArticleDetail(System.String)">
+            <summary>
+            获取文章详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Controllers.CategoryManageController">
+            <summary>
+            分类管理
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.CategoryManageController.#ctor(Community.Domain.Model.Common.Interfaces.ICategoryRepository)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.CategoryManageController.Add(Community.Domain.Model.Categorys.Param.CategoryParam)">
+            <summary>
+            添加分类测试
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.CategoryManageController.Categories(Community.Infrastructure.PageModel)">
+            <summary>
+            获取标题列表
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Controllers.CommentController">
+            <summary>
+            评论
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.CommentController.#ctor(Community.Domain.Model.Common.Interfaces.ICommentRepository,Community.Domain.Model.Common.Interfaces.IUserRepository)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="commentRepository"></param>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:Community.Api.Controllers.CommentController.Comments(Community.Domain.Model.Comments.Param.CommentsParam)">
+            <summary>
+            获取评论列表
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.CommentController.SubComment(Community.Domain.Model.Comments.Param.SubCommentParam)">
+            <summary>
+            提交评论
             </summary>
             <returns></returns>
         </member>
