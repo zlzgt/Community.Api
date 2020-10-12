@@ -57,11 +57,12 @@
             用户账号管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository)">
+        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService)">
             <summary>
             构造函数
             </summary>
             <param name="userRepository"></param>
+            <param name="userService"></param>
         </member>
         <member name="M:Community.Api.Controllers.AccountController.Login(Community.Domain.Model.Userers.Param.LoginParam)">
             <summary>
@@ -80,6 +81,11 @@
             获取注册人排行
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.AccountController.Test">
+            <summary>
+            依赖注入测试
+            </summary>
         </member>
         <member name="T:Community.Api.Controllers.ArticleController">
             <summary>

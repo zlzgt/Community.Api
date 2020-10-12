@@ -1,123 +1,173 @@
 ﻿using Community.Application.ApiModel;
 using Community.Application.IServices;
 using Community.Domain;
+using Community.Domain.Model.Common.Interfaces;
+using Community.Domain.Model.Userers.Param;
 using Community.Infrastructure;
 using Community.Infrastructure.JwtBreare;
+using EInfrastructure.Core.Config.EntitiesExtensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
-
+using Microsoft.Extensions.DependencyInjection;
 namespace Community.Application.Services
 {
     /// <summary>
     /// 用户服务
     /// </summary>
-    public class UserService 
+    public class UserService : IUserService
     {
+        #region 属性
+        private readonly IUserRepository _userRepository;
 
-       #region 错误的逻辑
-       // private readonly CommunityDbContext _CommunityDbContext;
-       // /// <summary>
-       // /// 构造函数注入
-       // /// </summary>
-       // public UserService(CommunityDbContext dbContext)
-       // {
-       //     this._CommunityDbContext = dbContext;
-       // }
-       //
-       // /// <summary>
-       // /// 用户登录
-       // /// </summary>
-       // /// <param name="login"></param>
-       // /// <returns></returns>
-       // public ReplyModel GetLoginInfo(UserInfoModel login)
-       // {
-       //     ReplyModel reply = new ReplyModel();
-       //     try
-       //     {
-       //         string pwd = MD5Encrypt.Encrypt(login.Password);
-       //         string jwtStr = string.Empty;
-       //         Users users = _CommunityDbContext.Set<Users>().Where(w => (w.UserName == login.UserName || w.Email == w.UserName) && w.Password == pwd).FirstOrDefault();
-       //         if (users != null)
-       //         {
-       //             TokenModel tokenModel = new TokenModel { Uid = users.Id.ToString(), Role = "admin" };
-       //             jwtStr = JwtHelper.issueJwt(tokenModel);
-       //             reply.Status = "002";
-       //             reply.Msg = "登录成功";
-       //             reply.Data = new
-       //             {
-       //                 jwtStr
-       //             };
-       //         }
-       //         else
-       //         {
-       //             reply.Msg = "账号或密码错误，请重试";
-       //         }
-       //     }
-       //     catch (Exception ex)
-       //     {
-       //         reply.Msg = "用户登录出现错误，请重试";
-       //         //_Logger.LogError($"用户登录出现异常,{JsonConvert.SerializeObject(ex)}");
-       //     }
-       //     return reply;
-       // }
-       //
-       //
-       // /// <summary>
-       // /// 注册用户信息
-       // /// </summary>
-       // /// <param name="userDto"></param>
-       // /// <returns></returns>
-       // public ReplyModel RegisterInfo(RegisterUserDto userDto)
-       // {
-       //     ReplyModel reply = new ReplyModel();
-       //     try
-       //     {
-       //         if (userDto.Password == userDto.RepeatPassword)
-       //         {
-       //             Users user = _CommunityDbContext.Set<Users>().Where(w => w.UserName == userDto.UserName || w.Email == userDto.Email).FirstOrDefault();
-       //             if (user == null)
-       //             {
-       //                 Users newCUsers = new Users();
-       //                 newCUsers.AddTime = DateTime.Now;
-       //                 newCUsers.Email = userDto.Email;
-       //                 newCUsers.NickName = userDto.NickName;
-       //                 newCUsers.Password = MD5Encrypt.Encrypt(userDto.Password);
-       //                 newCUsers.Tel = userDto.Tel;
-       //                 newCUsers.UserName = userDto.UserName;
-       //                 _CommunityDbContext.Set<Users>().Add(newCUsers);
-       //                 int iResult = _CommunityDbContext.SaveChanges();
-       //                 if (iResult > 0)
-       //                 {
-       //                     reply.Status = "002";
-       //                     reply.Msg = "注册成功";
-       //                 }
-       //                 else
-       //                 {
-       //                     reply.Msg = "注册失败";
-       //                 }
-       //             }
-       //             else
-       //             {
-       //                 reply.Msg = "用户名或邮箱已存在";
-       //             }
-       //         }
-       //         else
-       //         {
-       //             reply.Msg = "确认密码与输入密码不一致";
-       //         }
-       //     }
-       //     catch (Exception ex)
-       //     {
-       //         reply.Msg = "用户注册出现异常，请重试";
-       //         //_Logger.LogError($"用户注册出现异常{JsonConvert.SerializeObject(ex)}");
-       //     }
-       //     return reply;
-       // }
         #endregion
 
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="userRepository"></param>
+        public UserService(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
+
+        #region 用户登录
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="loginParam"></param>
+        /// <returns></returns>
+        public ReplyModel Login(LoginParam loginParam)
+        {
+            ReplyModel reply = new ReplyModel();
+            loginParam.Password = MD5Encrypt.Encrypt(loginParam.Password);
+            Users user = _userRepository.Get(loginParam);
+            if (user == null)
+            {
+                reply.Msg = "未找到用户信息";
+            }
+            else
+            {
+                reply.Status = "002";
+                reply.Msg = "登录成功";
+            }
+            return reply;
+        }
+        #endregion
+
+
+        #region 用户注册
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <param name="userDto"></param>
+        /// <param name="serviceProvider"></param>
+        /// <returns></returns>
+        public ReplyModel Register(RegisterUserDto userDto, IServiceProvider serviceProvider)
+        {
+            ReplyModel reply = new ReplyModel();
+            if (userDto.Password == userDto.RepeatPassword)
+            {
+                Expression<Func<Users, bool>> func = w => w.UserName == userDto.UserName;
+                Users user = _userRepository.Get(func);
+                if (user == null)
+                {
+                    Users newCUsers = new Users();
+                    newCUsers.AddTime = DateTime.Now;
+                    newCUsers.Email = userDto.Email;
+                    newCUsers.NickName = userDto.NickName;
+                    newCUsers.Password = MD5Encrypt.Encrypt(userDto.Password);
+                    newCUsers.Tel = userDto.Tel;
+                    newCUsers.UserName = userDto.UserName;
+                    _userRepository.Set(newCUsers);
+                    bool result = serviceProvider.GetService<IUnitOfWork>().Commit();
+                    if (result)
+                    {
+                        reply.Status = "002";
+                        reply.Msg = "注册成功";
+                    }
+                    else
+                    {
+                        reply.Msg = "注册失败";
+                    }
+                }
+                else
+                {
+                    reply.Msg = "用户名或邮箱已存在";
+                }
+            }
+            else
+            {
+                reply.Msg = "确认密码与输入密码不一致";
+            }
+            return reply;
+        }
+        #endregion
+
+        #region 注册人排序
+        /// <summary>
+        /// 注册人排序
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public ReplyModel UserSort(PageModel msg)
+        {
+            ReplyModel reply = new ReplyModel();
+            try
+            {
+                //int skip = (msg.PageIndex - 1) * msg.PageSize + 1;
+                //int end = msg.PageIndex * msg.PageSize;
+                //SqlParameter[] parameters = new[]{
+                //           new SqlParameter("@skip",SqlDbType.Int, skip),
+                //           new SqlParameter("@end",SqlDbType.Int,end)
+                //         };
+                //string sql = $@"select UserId,NickName,RowId
+                //                   from(select UserId, NickName, COUNT(UserId) As ArticleCount, ROW_NUMBER() OVER(ORDER BY Count(UserId) desc) as RowId
+                //                        from community_article
+                //                        where IsDraft ='1'
+                //                        group by UserId, NickName) as UserArticle
+                //                   where RowId between {skip} and {end}";
+                string mySql = $@"  select UserId,NickName
+                                   from(select UserId, NickName, COUNT(UserId) As ArticleCount
+                                        from community_article
+                                        where IsDraft=1
+                                        group by UserId, NickName
+                                        ORDER BY COUNT(UserID) DESC) as UserArticle
+                                    LIMIT {(msg.PageIndex - 1) * msg.PageSize}, {msg.PageSize}";
+
+
+                List<RUserSortModel> userSorts = _userRepository.SqlQuery<RUserSortModel>(mySql).ToList();
+                if (userSorts.Any())
+                {
+                    reply.Status = "002";
+                    reply.Msg = "获取数据成功";
+                    reply.Data = userSorts;
+                }
+                else
+                {
+                    reply.Msg = "没有数据了";
+                }
+            }
+            catch (Exception ex)
+            {
+                reply.Msg = "注册人排序出现异常，请重试";
+            }
+            return reply;
+        }
+        #endregion
+
+
+
+        public string Test()
+        {
+            return "测试依赖注入";
+        }
+
+       
     }
 }
