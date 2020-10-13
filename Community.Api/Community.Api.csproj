@@ -35,8 +35,4 @@
     <ProjectReference Include="..\Community.Service\Community.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Users\" />
-  </ItemGroup>
-
 </Project>
