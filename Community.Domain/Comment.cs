@@ -1,4 +1,5 @@
-﻿using EInfrastructure.Core.Config.EntitiesExtensions;
+﻿using Castle.DynamicProxy.Generators.Emitters;
+using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,7 @@ namespace Community.Domain
     /// <summary>
     /// 评论
     /// </summary>
-    [Table("Comment")]
-    public class Comment : AggregateRoot<string>
+    public class Comment:AggregateRoot<string>
     {
         /// <summary>
         /// 主键
@@ -23,33 +23,30 @@ namespace Community.Domain
         /// <summary>
         /// 文章Id
         /// </summary>
-        public string ArticleId { get; set; }
+        public string ArticleId { get; private set; }
         /// <summary>
         /// 评论内容
         /// </summary>
-        [MaxLength(512),Required]
-        public string Content { get; set; }
+        public string Content { get; private set; }
         /// <summary>
         /// 用户Id
         /// </summary>
-        public string UserId { get; set; }
+        public string UserId { get; private  set; }
         /// <summary>
         /// 回复Id 没有回复则为0
         /// </summary>
-        public int ParentId { get; set; }
+        public int ParentId { get;  private set; }
         /// <summary>
         /// 评论时间
         /// </summary>
-        public DateTime CommentDate { get; set; }
+        public DateTime CommentDate { get; private set; }
         /// <summary>
         ///  添加时间
         /// </summary>
-        public DateTime AddTime { get; set; }
+        public DateTime AddTime { get; private set; }
+
+        public virtual Article Article { get; private set;}
       
-        /// <summary>
-        /// 用户评论
-        /// </summary>
-        public virtual Users User { get; set;}
 
     }
 }

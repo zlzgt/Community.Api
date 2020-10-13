@@ -16,13 +16,12 @@ namespace Community.Reposity.MySql.Map
         public void Map(EntityTypeBuilder<Category> builder)
         {
             builder.ToTable("Community_Category");
-            builder.HasKey("Id");
-            builder.Property("Title");
-            builder.Property("Description");
-            builder.Property("AddTime");
+            builder.HasKey(w=>w.Id);
+            builder.Property(w=>w.Title).HasMaxLength(32).IsRequired();
+            builder.Property(w=>w.Description);
+            builder.Property(w=>w.AddTime);
 
-            // 一个分类对应多个文章
-            builder.HasMany(w => w.Articles).WithOne(w => w.Category).HasForeignKey(w => w.CategoryId);
+       
         }
     }
 }

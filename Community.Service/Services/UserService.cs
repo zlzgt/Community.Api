@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Castle.Core.Logging;
 using Microsoft.Extensions.Logging;
+using Community.Reposity.MySql;
 
 namespace Community.Application.Services
 {
@@ -28,6 +29,10 @@ namespace Community.Application.Services
 
         //使用日志组件
         private readonly ILogger<UserService> _logger;
+
+
+
+     
 
         #endregion
         /// <summary>

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Articles\Entity\" />
+    <Folder Include="Model\Comments\Entity\" />
     <Folder Include="Model\Userers\Entity\" />
   </ItemGroup>
 

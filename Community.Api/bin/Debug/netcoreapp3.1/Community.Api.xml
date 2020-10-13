@@ -97,7 +97,7 @@
             文章管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Domain.Model.Common.Interfaces.IArticleRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Domain.Model.Common.Interfaces.ICommentRepository)">
+        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Domain.Model.Common.Interfaces.IArticleRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Domain.Model.Common.Interfaces.ICommentRepository,EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Article,System.String},Community.Application.IServices.IArticleService)">
             <summary>
             构造函数注入
             </summary>

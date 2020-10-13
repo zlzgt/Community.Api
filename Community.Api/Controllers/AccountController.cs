@@ -26,7 +26,7 @@ namespace Community.Api.Controllers
     /// </summary>
     [Route("api/v1/[controller]/[action]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
     {
         #region 属性
         private readonly IUserRepository _userRepository;
@@ -63,9 +63,9 @@ namespace Community.Api.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ActionName("login")]
-        public ActionResult<ReplyModel> Login([FromBody] LoginParam msg)
+        public JsonResult Login([FromBody] LoginParam msg)
         {
-            return _userService.Login(msg);
+            return Json(_userService.Login(msg));
         }
         #endregion
 
@@ -77,9 +77,9 @@ namespace Community.Api.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ActionName("register")]
-        public ActionResult<ReplyModel> Register([FromBody] RegisterUserDto userDto)
+        public JsonResult  Register([FromBody] RegisterUserDto userDto)
         {
-            return _userService.Register(userDto, ServiceProvider);
+            return Json( _userService.Register(userDto, ServiceProvider));
         }
         #endregion
 
@@ -90,9 +90,9 @@ namespace Community.Api.Controllers
         /// <returns></returns>
         [HttpPost]
         [ActionName("usersort")]
-        public ActionResult<ReplyModel> UserSort([FromBody]PageModel msg)
+        public JsonResult UserSort([FromBody]PageModel msg)
         {
-            return _userService.UserSort(msg);
+            return Json(_userService.UserSort(msg));
         }
         #endregion
 

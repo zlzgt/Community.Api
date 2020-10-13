@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Community.Application.ApiModel.Categorys;
 using Community.Domain;
 using Community.Domain.Model.Categorys.Param;
 using Community.Domain.Model.Common.Interfaces;
 using Community.Infrastructure;
+using EInfrastructure.Core.Config.Entities.Data;
 using EInfrastructure.Core.Config.EntitiesExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +26,18 @@ namespace Community.Api.Controllers
         #region 属性
         private readonly ICategoryRepository _categoryRepository;
         protected IServiceProvider ServiceProvider => Request.HttpContext.RequestServices;
+
+        public readonly IQuery<Category, string> _categoryQuery;
+
         #endregion
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        public CategoryManageController(ICategoryRepository categoryRepository)
+        public CategoryManageController(ICategoryRepository categoryRepository,IQuery<Category,string> category)
         {
             _categoryRepository = categoryRepository;
+            _categoryQuery = category;
         }
 
         #region 添加分类
@@ -45,14 +51,10 @@ namespace Community.Api.Controllers
         {
             ReplyModel replyModel = new ReplyModel();
             Expression<Func<Category, bool>> func = w => w.Title == msg.Title;
-            Category category = _categoryRepository.Get(func);
+            CategoryDto category =CategoryDto.GetCategoryInfo(_categoryQuery, msg.Title);
             if (category == null)
             {
-                Category newCategory = new Category();
-                newCategory.Title = msg.Title;
-                newCategory.Description = msg.Description;
-                newCategory.AddTime = DateTime.Now;
-                _categoryRepository.Set(newCategory);
+                Category.Add(_categoryRepository,msg.Title,msg.Description);
                 bool result = ServiceProvider.GetService<IUnitOfWork>().Commit();
                 if (result)
                 {
@@ -82,12 +84,12 @@ namespace Community.Api.Controllers
         public ActionResult<ReplyModel> Categories([FromBody]PageModel msg)
         {
             ReplyModel reply = new ReplyModel();
-            PageResult<Category> comments = _categoryRepository.QueryPage<Category, DateTime>(w => true, msg.PageSize, msg.PageIndex, w => w.AddTime, false);
-            if(comments.DataList.Any())
+            PageData<CategoryDto> categories= CategoryDto.GetList(_categoryQuery, msg);
+            if(categories.Data.Any())
             {
                 reply.Status = "002";
                 reply.Msg = "获取数成功";
-                reply.Data = comments;
+                reply.Data = categories;
             }
             else
             {

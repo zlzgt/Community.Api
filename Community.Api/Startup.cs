@@ -88,7 +88,6 @@ namespace Community.Api
                 endpoints.MapControllers();
             });
 
-          
         }
     }
 }

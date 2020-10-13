@@ -438,3 +438,4 @@ F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.A
 F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.Api.MvcApplicationPartsAssemblyInfo.cs
 F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\Community.Api\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
+F:\Community.Api\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\Dapper.dll

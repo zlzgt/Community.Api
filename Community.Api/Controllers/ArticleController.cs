@@ -20,14 +20,23 @@ namespace Community.Api.Controllers
     /// </summary>
     [Route("api/v1/[controller]/[action]")]
     [ApiController]
-    public class ArticleController : ControllerBase
+    public class ArticleController : Controller
     {
         #region 属性
         private readonly IArticleRepository _articleRepository;
 
         private readonly IUserRepository _userRepository;
 
+
+        private readonly IArticleService _articleService;
+
+
         private readonly ICommentRepository _commentRepository;
+
+        private readonly IQuery<Article, string> _articleQuery;
+
+
+
 
 
         protected IServiceProvider ServiceProvider => Request.HttpContext.RequestServices;
@@ -38,11 +47,13 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="articleRepository">文章仓储</param>
         /// <param name="userRepository">用户仓储</param>
-        public ArticleController(IArticleRepository articleRepository, IUserRepository userRepository,ICommentRepository commentRepository)
+        public ArticleController(IArticleRepository articleRepository, IUserRepository userRepository,ICommentRepository commentRepository, IQuery<Article,string> articleQuery,IArticleService articleService)
         {
             _articleRepository = articleRepository;
             _userRepository = userRepository;
             _commentRepository = commentRepository;
+            _articleQuery = articleQuery;
+            _articleService = articleService;
         }
         #endregion
 
@@ -115,6 +126,7 @@ namespace Community.Api.Controllers
         [ActionName("articles")]
         public ActionResult<ReplyModel> Articles([FromBody] PageModel msg)
         {
+            return _articleService.Articles(msg);
             ReplyModel reply = new ReplyModel();
             try
             {
@@ -190,7 +202,15 @@ namespace Community.Api.Controllers
         #endregion
 
 
+        //#region 测试数据传输对象
+        //[HttpGet("GetList1")]
+        
+        //public JsonResult GetList()
+        //{
 
+        //    return Json(ArticlesDto.GetList(_articleQuery));
+        //}
+        //#endregion
 
 
     }

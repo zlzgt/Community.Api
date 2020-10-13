@@ -1,5 +1,7 @@
 ﻿using Autofac;
+using EInfrastructure.Core.Config.EntitiesExtensions;
 using EInfrastructure.Core.Configuration.Ioc;
+using EInfrastructure.Core.MySql.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +78,8 @@ namespace Community.Api.AppData
 
 
             var assemblys = AppDomain.CurrentDomain.GetAssemblies().ToArray();
+
+            containerBuilder.RegisterGeneric(typeof(QueryBase<,>)).As(typeof(IQuery<,>)).InstancePerDependency();
 
             var perRequestType = typeof(IPerRequest);
             containerBuilder.RegisterAssemblyTypes(assemblys)

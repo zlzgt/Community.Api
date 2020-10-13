@@ -11,7 +11,6 @@ namespace Community.Domain
     /// <summary>
     /// 文章
     /// </summary>
-    [Table("Article")]
     public partial class Article : AggregateRoot<string>
     {
         /// <summary>
@@ -26,13 +25,8 @@ namespace Community.Domain
         /// </summary>
         public string UserId { get; set; }
         /// <summary>
-        /// 用户昵称
-        /// </summary>
-        public string NickName { get; set; }
-        /// <summary>
         /// 标题
         /// </summary>
-        [MaxLength(256),Required]
         public string Title { get; set; }
         /// <summary>
         /// 是否为草稿
@@ -41,12 +35,10 @@ namespace Community.Domain
         /// <summary>
         /// 内容
         /// </summary>
-        [Required]
         public string Content { get; set; }
         /// <summary>
         /// 摘要
         /// </summary>
-        [MaxLength(512),Required]
         public string Summary { get; set; }
         /// <summary>
         /// 摘要图片
@@ -63,12 +55,10 @@ namespace Community.Domain
         /// <summary>
         /// 标签Id 多个以逗号分割
         /// </summary>
-        [Required]
         public string CategoryId { get; set; }
         /// <summary>
         /// 标签名
         /// </summary>
-        [Required]
         public string CategoryName { get; set; }
         /// <summary>
         /// 阅读数量
@@ -86,14 +76,11 @@ namespace Community.Domain
         /// 添加时间
         /// </summary>
         public DateTime AddTime { get; set; }
+        /// <summary>
+        ///  评论
+        /// </summary>
+        public ICollection<Comment> comments { get; private set; } = new List<Comment>();
 
-        /// <summary>
-        /// 分类
-        /// </summary>
-        public virtual Category Category { get; set;}
-        /// <summary>
-        /// 用户
-        /// </summary>
-        public virtual Users User { get; set; }
+
     }
 }

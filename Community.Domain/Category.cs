@@ -10,10 +10,8 @@ namespace Community.Domain
     /// <summary>
     ///  标签分类
     /// </summary>
-    [Table("Category")]
     public partial class Category: AggregateRoot<string>
     {
-       
         /// <summary>
         /// 主键
         /// </summary>
@@ -25,19 +23,15 @@ namespace Community.Domain
         /// 标题
         /// </summary>
         [MaxLength(32),Required]
-        public string Title { get; set; }
+        public string Title { get; private set; }
         /// <summary>
         /// 描述
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; private set; }
         /// <summary>
         /// 添加时间
         /// </summary>
-        public DateTime AddTime { get; set; }
+        public DateTime AddTime { get; private set; }
 
-        /// <summary>
-        ///  一个分类对应多个文章
-        /// </summary>
-        public virtual ICollection<Article> Articles { get; set; } = new List<Article>();
     }
 }

@@ -29,7 +29,8 @@ namespace Community.Reposity.MySql.Map
             builder.Property("Password");
             builder.Property("PubTime");
             builder.Property("AddTime");
-       
+
+            builder.HasMany(w => w.Comments).WithOne(w => w.Article).HasForeignKey(w=>w.ArticleId);
         }
     }
 }
