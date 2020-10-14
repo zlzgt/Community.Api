@@ -17,6 +17,7 @@ namespace Community.Reposity.MySql.Map
         {
             builder.ToTable("Community_Category");
             builder.HasKey(w=>w.Id);
+            builder.Property(w => w.Id).HasMaxLength(36);
             builder.Property(w=>w.Title).HasMaxLength(32).IsRequired();
             builder.Property(w=>w.Description);
             builder.Property(w=>w.AddTime);
