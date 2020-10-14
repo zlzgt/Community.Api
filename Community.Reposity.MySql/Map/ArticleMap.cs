@@ -14,23 +14,24 @@ namespace Community.Reposity.MySql.Map
         {
             builder.ToTable("Community_Article");
             builder.HasKey(x=>x.Id);
-            builder.Property("UserId");
+            builder.Property(w => w.Id).HasMaxLength(36);
+            builder.Property(w=>w.UserId).IsRequired();
             builder.Property(w=>w.NickName);
-            builder.Property("Title");
-            builder.Property("IsDraft");
-            builder.Property("Content");
-            builder.Property("Summary");
-            builder.Property("Img");
-            builder.Property("Config");
-            builder.Property("EntryName");
-            builder.Property("CategoryId");
-            builder.Property("CategoryName");
-            builder.Property("ReadCount");
-            builder.Property("Password");
-            builder.Property("PubTime");
-            builder.Property("AddTime");
+            builder.Property(w=>w.Title).IsRequired();
+            builder.Property(w=>w.IsDraft).IsRequired();
+            builder.Property(w=>w.Content);
+            builder.Property(w=>w.Summary);
+            builder.Property(w=>w.Img);
+            builder.Property(w=>w.Config);
+            builder.Property(w=>w.EntryName);
+            builder.Property(w=>w.ArticleCategoryJson);
+            builder.Ignore(w => w.ArticleCategory);
+            builder.Property(w=>w.ReadCount);
+            builder.Property(w=>w.Password);
+            builder.Property(w=>w.PubTime);
+            builder.Property(w=>w.AddTime).IsRequired();
 
-            builder.HasMany(w => w.Comments).WithOne(w => w.Article).HasForeignKey(w=>w.ArticleId);
+     
         }
     }
 }

@@ -20,24 +20,19 @@ namespace Community.Reposity.MySql.Migrations
             modelBuilder.Entity("Community.Domain.Article", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+                        .HasColumnType("varchar(36) CHARACTER SET utf8mb4")
+                        .HasMaxLength(36);
 
                     b.Property<DateTime>("AddTime")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("CategoryId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
+                    b.Property<string>("ArticleCategoryJson")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Config")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("EntryName")
@@ -62,23 +57,17 @@ namespace Community.Reposity.MySql.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Summary")
-                        .IsRequired()
-                        .HasColumnType("varchar(512) CHARACTER SET utf8mb4")
-                        .HasMaxLength(512);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
-                        .HasMaxLength(256);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(36) CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Community_Article");
                 });
@@ -121,18 +110,16 @@ namespace Community.Reposity.MySql.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("varchar(512) CHARACTER SET utf8mb4")
-                        .HasMaxLength(512);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(36) CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Community_Comment");
                 });
@@ -147,53 +134,25 @@ namespace Community.Reposity.MySql.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(32) CHARACTER SET utf8mb4")
-                        .HasMaxLength(32);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("NickName")
-                        .HasColumnType("varchar(64) CHARACTER SET utf8mb4")
-                        .HasMaxLength(64);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("varchar(64) CHARACTER SET utf8mb4")
-                        .HasMaxLength(64);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Tel")
-                        .IsRequired()
-                        .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
-                        .HasMaxLength(11);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("varchar(32) CHARACTER SET utf8mb4")
-                        .HasMaxLength(32);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
                     b.ToTable("Community_Users");
-                });
-
-            modelBuilder.Entity("Community.Domain.Article", b =>
-                {
-                    b.HasOne("Community.Domain.Category", "Category")
-                        .WithMany("Articles")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Community.Domain.Users", "User")
-                        .WithMany("Articles")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Community.Domain.Comment", b =>
-                {
-                    b.HasOne("Community.Domain.Users", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

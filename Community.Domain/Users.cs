@@ -1,4 +1,4 @@
-﻿using Community.Domain.Model.Userers.Entity;
+﻿
 using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;

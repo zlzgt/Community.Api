@@ -11,8 +11,11 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Community.Application.ApiModel.Categorys
+namespace Community.Api.Models.Categories
 {
+    /// <summary>
+    /// 分类数据传输对象
+    /// </summary>
     public class CategoryDto
     {
         /// <summary>

@@ -11,11 +11,8 @@ namespace Community.Domain
     /// <summary>
     /// 评论
     /// </summary>
-    public class Comment:AggregateRoot<string>
+    public partial class Comment:AggregateRoot<string>
     {
-        /// <summary>
-        /// 主键
-        /// </summary>
         public Comment()
         {
             Id = Guid.NewGuid().ToString();
@@ -33,6 +30,10 @@ namespace Community.Domain
         /// </summary>
         public string UserId { get; private  set; }
         /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { get; private set; }
+        /// <summary>
         /// 回复Id 没有回复则为0
         /// </summary>
         public int ParentId { get;  private set; }
@@ -45,7 +46,6 @@ namespace Community.Domain
         /// </summary>
         public DateTime AddTime { get; private set; }
 
-        public virtual Article Article { get; private set;}
       
 
     }

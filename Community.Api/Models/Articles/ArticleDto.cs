@@ -1,4 +1,4 @@
-﻿using Abp.Webhooks;
+﻿using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using Community.Domain;
 using Community.Infrastructure;
 using EInfrastructure.Core.Config.Entities.Data;
@@ -9,21 +9,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using System.Threading.Tasks;
 
-namespace Community.Application.ApiModel
+namespace Community.Api.Models.Articles
 {
     /// <summary>
-    /// 文章列表信息
+    /// 文章数据传输对象
     /// </summary>
-    public class ArticlesDto
+    public class ArticleDto
     {
-
-
         /// <summary>
         /// 文章Id
         /// </summary>
-        public string Id { get; set;}
+        public string Id { get; set; }
 
         /// <summary>
         /// 文章发布时间
@@ -60,25 +58,20 @@ namespace Community.Application.ApiModel
         /// </summary>
         /// <param name="articleQuery"></param>
         /// <returns></returns>
-        public static PageData<ArticlesDto> GetList(IQuery<Article, string> articleQuery,PageModel page)
+        public static PageData<ArticleDto> GetList(IQuery<Article, string> articleQuery, PageModel page)
         {
             Expression<Func<Article, bool>> func = w => true;
-            return articleQuery.GetQueryable().Where(func).Select(w => new ArticlesDto
+            return articleQuery.GetQueryable().Where(func).Select(w => new ArticleDto
             {
                 PubTime = w.PubTime.ToString("yyyy年MM月dd日"),
                 AddTime = w.AddTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                Summary=w.Summary,
-                UserName=w.NickName,
-                ReadCount=w.ReadCount,
-                Id=w.Id
+                Summary = w.Summary,
+                UserName = w.NickName,
+                ReadCount = w.ReadCount,
+                Id = w.Id
             }).ListPager(page.PageSize, page.PageIndex, true);
         }
         #endregion
-
-
-
-
-
 
 
     }

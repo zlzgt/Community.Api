@@ -52,95 +52,60 @@
             </summary>
             <param name="context"></param>
         </member>
-        <member name="T:Community.Api.Controllers.AccountController">
-            <summary>
-            用户账号管理
-            </summary>
-        </member>
-        <member name="F:Community.Api.Controllers.AccountController._logger">
-            <summary>
-            使用日志组件
-            </summary>
-        </member>
-        <member name="M:Community.Api.Controllers.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService,Microsoft.Extensions.Logging.ILogger{Community.Api.Controllers.AccountController})">
-            <summary>
-            构造函数
-            </summary>
-            <param name="userRepository"></param>
-            <param name="userService"></param>
-        </member>
-        <member name="M:Community.Api.Controllers.AccountController.Login(Community.Domain.Model.Userers.Param.LoginParam)">
-            <summary>
-            用户登录测试
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Community.Api.Controllers.AccountController.Register(Community.Application.ApiModel.RegisterUserDto)">
-            <summary>
-            用户注册
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Community.Api.Controllers.AccountController.UserSort(Community.Infrastructure.PageModel)">
-            <summary>
-            获取注册人排行
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Community.Api.Controllers.AccountController.Test">
-            <summary>
-            依赖注入测试
-            </summary>
-        </member>
-        <member name="T:Community.Api.Controllers.ArticleController">
+        <member name="T:Community.Api.Controllers.Articles.ArticleController">
             <summary>
             文章管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.ArticleController.#ctor(Community.Domain.Model.Common.Interfaces.IArticleRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Domain.Model.Common.Interfaces.ICommentRepository,EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Article,System.String},Community.Application.IServices.IArticleService)">
+        <member name="F:Community.Api.Controllers.Articles.ArticleController._articleQuery">
+            <summary>
+            查询文章数据传输对象
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.Articles.ArticleController.#ctor(Community.Domain.Model.Common.Interfaces.IArticleRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Domain.Model.Common.Interfaces.ICommentRepository,EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Article,System.String})">
             <summary>
             构造函数注入
             </summary>
             <param name="articleRepository">文章仓储</param>
             <param name="userRepository">用户仓储</param>
         </member>
-        <member name="M:Community.Api.Controllers.ArticleController.PubArticle(Community.Application.ApiModel.PubArticleModel)">
+        <member name="M:Community.Api.Controllers.Articles.ArticleController.PubArticle(Community.Domain.Model.Articles.Param.ArticleParam)">
             <summary>
             文章发布或保存草稿
             </summary>
             <param name="msg"></param>
             <returns></returns>
         </member>
-        <member name="M:Community.Api.Controllers.ArticleController.Articles(Community.Infrastructure.PageModel)">
+        <member name="M:Community.Api.Controllers.Articles.ArticleController.Articles(Community.Infrastructure.PageModel)">
             <summary>
             获取文章列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Community.Api.Controllers.ArticleController.ArticleDetail(System.String)">
+        <member name="M:Community.Api.Controllers.Articles.ArticleController.ArticleDetail(System.String)">
             <summary>
             获取文章详情
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Community.Api.Controllers.CategoryManageController">
+        <member name="T:Community.Api.Controllers.Categories.CategoryManageController">
             <summary>
             分类管理
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.CategoryManageController.#ctor(Community.Domain.Model.Common.Interfaces.ICategoryRepository)">
+        <member name="M:Community.Api.Controllers.Categories.CategoryManageController.#ctor(Community.Domain.Model.Common.Interfaces.ICategoryRepository,EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Category,System.String})">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.CategoryManageController.Add(Community.Domain.Model.Categorys.Param.CategoryParam)">
+        <member name="M:Community.Api.Controllers.Categories.CategoryManageController.Add(Community.Domain.Model.Categorys.Param.CategoryParam)">
             <summary>
             添加分类测试
             </summary>
             <param name="msg"></param>
             <returns></returns>
         </member>
-        <member name="M:Community.Api.Controllers.CategoryManageController.Categories(Community.Infrastructure.PageModel)">
+        <member name="M:Community.Api.Controllers.Categories.CategoryManageController.Categories(Community.Infrastructure.PageModel)">
             <summary>
             获取标题列表
             </summary>
@@ -152,12 +117,18 @@
             评论
             </summary>
         </member>
-        <member name="M:Community.Api.Controllers.CommentController.#ctor(Community.Domain.Model.Common.Interfaces.ICommentRepository,Community.Domain.Model.Common.Interfaces.IUserRepository)">
+        <member name="F:Community.Api.Controllers.CommentController._commentQuery">
+            <summary>
+            查询评论数据传输对象
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.CommentController.#ctor(Community.Domain.Model.Common.Interfaces.ICommentRepository,Community.Domain.Model.Common.Interfaces.IUserRepository,EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Comment,System.String})">
             <summary>
             构造函数
             </summary>
             <param name="commentRepository"></param>
             <param name="userRepository"></param>
+            <param name="commentQuery"></param>
         </member>
         <member name="M:Community.Api.Controllers.CommentController.Comments(Community.Domain.Model.Comments.Param.CommentsParam)">
             <summary>
@@ -170,6 +141,158 @@
             <summary>
             提交评论
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Controllers.User.AccountController">
+            <summary>
+            用户账号管理
+            </summary>
+        </member>
+        <member name="F:Community.Api.Controllers.User.AccountController._logger">
+            <summary>
+            使用日志组件
+            </summary>
+        </member>
+        <member name="M:Community.Api.Controllers.User.AccountController.#ctor(Community.Domain.Model.Common.Interfaces.IUserRepository,Community.Application.IServices.IUserService,Microsoft.Extensions.Logging.ILogger{Community.Api.Controllers.User.AccountController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="userRepository"></param>
+            <param name="userService"></param>
+        </member>
+        <member name="M:Community.Api.Controllers.User.AccountController.Login(Community.Domain.Model.Userers.Param.LoginParam)">
+            <summary>
+            用户登录测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.User.AccountController.Register(Community.Application.ApiModel.RegisterUserInfo)">
+            <summary>
+            用户注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.User.AccountController.UserSort(Community.Infrastructure.PageModel)">
+            <summary>
+            获取注册人排行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Community.Api.Controllers.User.AccountController.Test">
+            <summary>
+            依赖注入测试
+            </summary>
+        </member>
+        <member name="T:Community.Api.Models.Articles.ArticleDto">
+            <summary>
+            文章数据传输对象
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.Id">
+            <summary>
+            文章Id
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.PubTime">
+            <summary>
+            文章发布时间
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.AddTime">
+            <summary>
+            文章添加时间
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.Summary">
+            <summary>
+            文章摘要
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Articles.ArticleDto.ReadCount">
+            <summary>
+            阅读数量
+            </summary>
+        </member>
+        <member name="M:Community.Api.Models.Articles.ArticleDto.GetList(EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Article,System.String},Community.Infrastructure.PageModel)">
+            <summary>
+            获取文章列表信息
+            </summary>
+            <param name="articleQuery"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Models.Categories.CategoryDto">
+            <summary>
+            分类数据传输对象
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Categories.CategoryDto.Id">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Categories.CategoryDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Categories.CategoryDto.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Categories.CategoryDto.AddTime">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="M:Community.Api.Models.Categories.CategoryDto.GetCategoryInfo(EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Category,System.String},System.String)">
+            <summary>
+            获取分类信息
+            </summary>
+        </member>
+        <member name="M:Community.Api.Models.Categories.CategoryDto.GetList(EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Category,System.String},Community.Infrastructure.PageModel)">
+            <summary>
+            获取文章列表信息
+            </summary>
+            <param name="articleQuery"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Community.Api.Models.Comments.CommentDto">
+            <summary>
+            评论数据传输对象
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Comments.CommentDto.CommentTime">
+            <summary>
+            评论时间
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Comments.CommentDto.CommentContent">
+            <summary>
+            评论内容
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Comments.CommentDto.UserId">
+            <summary>
+            评论用户Id
+            </summary>
+        </member>
+        <member name="P:Community.Api.Models.Comments.CommentDto.UserName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="M:Community.Api.Models.Comments.CommentDto.GetList(EInfrastructure.Core.Config.EntitiesExtensions.IQuery{Community.Domain.Comment,System.String},System.Linq.Expressions.Expression{System.Func{Community.Domain.Comment,System.Boolean}},Community.Infrastructure.PageModel)">
+            <summary>
+            获取评论列表
+            </summary>
+            <param name="articleQuery"></param>
+            <param name="page"></param>
             <returns></returns>
         </member>
         <member name="M:Community.Api.Program.Main(System.String[])">

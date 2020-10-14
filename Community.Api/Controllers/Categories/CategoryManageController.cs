@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Community.Application.ApiModel.Categorys;
+using Community.Api.Models.Categories;
 using Community.Domain;
 using Community.Domain.Model.Categorys.Param;
 using Community.Domain.Model.Common.Interfaces;
@@ -13,14 +13,14 @@ using EInfrastructure.Core.Config.EntitiesExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-namespace Community.Api.Controllers
+namespace Community.Api.Controllers.Categories
 {
     /// <summary>
     /// 分类管理
     /// </summary>
     [Route("api/v1/[controller]/[action]")]
     [ApiController]
-    public class CategoryManageController : ControllerBase
+    public class CategoryManageController :Controller
     {
 
         #region 属性
@@ -97,8 +97,6 @@ namespace Community.Api.Controllers
             }
             return reply;
         }
-
-
         #endregion
 
 

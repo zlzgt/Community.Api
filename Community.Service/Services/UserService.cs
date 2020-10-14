@@ -79,7 +79,7 @@ namespace Community.Application.Services
         /// <param name="userDto"></param>
         /// <param name="serviceProvider"></param>
         /// <returns></returns>
-        public ReplyModel Register(RegisterUserDto userDto, IServiceProvider serviceProvider)
+        public ReplyModel Register(RegisterUserInfo userDto, IServiceProvider serviceProvider)
         {
             ReplyModel reply = new ReplyModel();
             if (userDto.Password == userDto.RepeatPassword)

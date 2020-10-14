@@ -5,10 +5,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+using Community.Api.Models.Comments;
 using Community.Domain;
 using Community.Domain.Model.Comments.Param;
 using Community.Domain.Model.Common.Interfaces;
 using Community.Infrastructure;
+using EInfrastructure.Core.Config.Entities.Data;
 using EInfrastructure.Core.Config.EntitiesExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +22,18 @@ namespace Community.Api.Controllers
     /// </summary>
     [Route("api/v1/[controller]/[action]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class CommentController : Controller
     {
 
         #region 属性
         private readonly ICommentRepository _commentRepository;
 
         private readonly IUserRepository _userRepository;
+
+        /// <summary>
+        /// 查询评论数据传输对象
+        /// </summary>
+        private readonly IQuery<Comment, string> _commentQuery;
 
         protected IServiceProvider ServiceProvider => Request.HttpContext.RequestServices;
         #endregion
@@ -36,14 +43,15 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="commentRepository"></param>
         /// <param name="userRepository"></param>
-        public CommentController(ICommentRepository commentRepository, IUserRepository userRepository)
+        /// <param name="commentQuery"></param>
+        public CommentController(ICommentRepository commentRepository, IUserRepository userRepository,IQuery<Comment,string> commentQuery)
         {
             _commentRepository = commentRepository;
             _userRepository = userRepository;
+            _commentQuery = commentQuery;
         }
 
-
-        #region 获取品论列表
+        #region 获取评论列表
         /// <summary>
         /// 获取评论列表
         /// </summary>
@@ -55,27 +63,12 @@ namespace Community.Api.Controllers
         {
             ReplyModel reply = new ReplyModel();
             Expression<Func<Comment, bool>> func = w => w.ArticleId == msg.ArticleId;
-            PageResult<Comment> comments = _commentRepository.QueryPage<Comment, DateTime>(func, msg.PageSize, msg.PageIndex, w => w.AddTime, false);
-            if (comments.DataList.Any())
+            PageData<CommentDto> comments=CommentDto.GetList(_commentQuery, func,msg);
+            if (comments.Data.Any())
             {
-                List<string> commentsId = comments.DataList.Select(w => w.UserId).Distinct().ToList();
-
-                List<Users> users = _userRepository.GetAll(w => commentsId.Contains(w.Id)).ToList();
-
-                List<RCommentsModel> rComments = new List<RCommentsModel>();
-                foreach (var item in comments.DataList)
-                {
-                    RCommentsModel comment = new RCommentsModel();
-                    comment.CommentContent = item.Content;
-                    Users user = users.Where(w => w.Id == item.UserId).FirstOrDefault();
-                    if (user != null)
-                        comment.UserName = user.NickName;
-                    comment.CommentTime = item.CommentDate.ToString("yyyy-mm-dd HH:mm:ss");
-                    rComments.Add(comment);
-                }
                 reply.Status = "002";
                 reply.Msg = "获取评论成功";
-                reply.Data = rComments;
+                reply.Data = comments;
             }
             else
             {
@@ -85,7 +78,6 @@ namespace Community.Api.Controllers
         }
         #endregion
 
-
         #region 提交评论
         /// <summary>
         /// 提交评论
@@ -93,19 +85,12 @@ namespace Community.Api.Controllers
         /// <returns></returns>
         [HttpPost]
         [ActionName("subcomment")]
-        public ActionResult<ReplyModel> SubComment([FromBody]SubCommentParam msg)
+        public JsonResult SubComment([FromBody]SubCommentParam msg)
         {
             ReplyModel reply = new ReplyModel();
             try
             {
-                Comment comment = new Comment();
-                comment.ArticleId = msg.ArticleId;
-                comment.Content = msg.Content;
-                comment.UserId = msg.UserId;
-                comment.ParentId = 0;
-                comment.CommentDate = DateTime.Now;
-                comment.AddTime = DateTime.Now;
-                _commentRepository.Set(comment);
+                Comment.SubComment(_commentRepository,msg);
                 bool result = ServiceProvider.GetService<IUnitOfWork>().Commit();
                 if (result)
                 {
@@ -119,9 +104,9 @@ namespace Community.Api.Controllers
             }
             catch (Exception ex)
             {
-                reply.Msg = "提交评论出现异常，请重试";
+                reply.Msg = $"提交评论出现异常，请重试{ex.Message}";
             }
-            return reply;
+            return  Json(reply);
         }
         #endregion
 

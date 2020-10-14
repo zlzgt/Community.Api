@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Community.Api.AppData;
-using Community.Application.ApiModel;
+﻿using Community.Application.ApiModel;
 using Community.Application.IServices;
-using Community.Domain;
 using Community.Domain.Model.Common.Interfaces;
 using Community.Domain.Model.Userers.Param;
 using Community.Infrastructure;
-using EInfrastructure.Core.Config.EntitiesExtensions;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Community.Api.Controllers
+namespace Community.Api.Controllers.User
 {
     /// <summary>
     /// 用户账号管理
@@ -34,10 +26,10 @@ namespace Community.Api.Controllers
 
         private readonly IUserService _userService;
 
-       /// <summary>
-       /// 使用日志组件
-       /// </summary>
-        private readonly ILogger<AccountController>  _logger;
+        /// <summary>
+        /// 使用日志组件
+        /// </summary>
+        private readonly ILogger<AccountController> _logger;
 
         #endregion
 
@@ -47,7 +39,7 @@ namespace Community.Api.Controllers
         /// </summary>
         /// <param name="userRepository"></param>
         /// <param name="userService"></param>
-        public AccountController(IUserRepository userRepository, IUserService userService,ILogger<AccountController> logger)
+        public AccountController(IUserRepository userRepository, IUserService userService, ILogger<AccountController> logger)
         {
             _userRepository = userRepository;
             _userService = userService;
@@ -77,9 +69,9 @@ namespace Community.Api.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ActionName("register")]
-        public JsonResult  Register([FromBody] RegisterUserDto userDto)
+        public JsonResult Register([FromBody] RegisterUserInfo userDto)
         {
-            return Json( _userService.Register(userDto, ServiceProvider));
+            return Json(_userService.Register(userDto, ServiceProvider));
         }
         #endregion
 

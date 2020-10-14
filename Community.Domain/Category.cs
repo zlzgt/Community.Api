@@ -12,9 +12,6 @@ namespace Community.Domain
     /// </summary>
     public partial class Category: AggregateRoot<string>
     {
-        /// <summary>
-        /// 主键
-        /// </summary>
         public Category()
         {
             Id = Guid.NewGuid().ToString();
@@ -22,7 +19,6 @@ namespace Community.Domain
         /// <summary>
         /// 标题
         /// </summary>
-        [MaxLength(32),Required]
         public string Title { get; private set; }
         /// <summary>
         /// 描述

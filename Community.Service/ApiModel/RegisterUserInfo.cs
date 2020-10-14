@@ -8,7 +8,7 @@ namespace Community.Application.ApiModel
     /// <summary>
     /// 用户注册信息
     /// </summary>
-    public class RegisterUserDto
+    public class RegisterUserInfo
     {
         /// <summary>
         /// 用户名
