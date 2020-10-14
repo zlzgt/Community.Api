@@ -178,11 +178,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Community.Api.Controllers.User.AccountController.Test">
-            <summary>
-            依赖注入测试
-            </summary>
-        </member>
         <member name="T:Community.Api.Models.Articles.ArticleDto">
             <summary>
             文章数据传输对象

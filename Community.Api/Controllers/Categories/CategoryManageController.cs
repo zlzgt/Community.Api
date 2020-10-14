@@ -46,7 +46,8 @@ namespace Community.Api.Controllers.Categories
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [HttpPost("Add")]
+        [HttpPost]
+        [ActionName("add")]
         public ActionResult<ReplyModel> Add([FromBody]CategoryParam msg)
         {
             ReplyModel replyModel = new ReplyModel();
@@ -80,7 +81,8 @@ namespace Community.Api.Controllers.Categories
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [HttpPost("Categories")]
+        [HttpPost]
+        [ActionName("categories")]
         public ActionResult<ReplyModel> Categories([FromBody]PageModel msg)
         {
             ReplyModel reply = new ReplyModel();

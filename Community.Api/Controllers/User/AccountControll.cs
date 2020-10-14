@@ -87,19 +87,5 @@ namespace Community.Api.Controllers.User
             return Json(_userService.UserSort(msg));
         }
         #endregion
-
-
-        #region 测试依赖注入
-        /// <summary>
-        /// 依赖注入测试
-        /// </summary>
-        [HttpGet("Test")]
-        public ActionResult<string> Test()
-        {
-            _logger.LogInformation("log4net日志的使用");
-            return _userService.Test();
-        }
-        #endregion 
-
     }
 }

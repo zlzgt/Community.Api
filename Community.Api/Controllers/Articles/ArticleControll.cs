@@ -43,6 +43,7 @@ namespace Community.Api.Controllers.Articles
 
         protected IServiceProvider ServiceProvider => Request.HttpContext.RequestServices;
         #endregion
+
         #region 构造函数
         /// <summary>
         /// 构造函数注入
@@ -57,7 +58,6 @@ namespace Community.Api.Controllers.Articles
         }
         #endregion
 
-
         #region 文章发布或保存草稿
         /// <summary>
         /// 文章发布或保存草稿
@@ -65,8 +65,7 @@ namespace Community.Api.Controllers.Articles
         /// <param name="msg"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("pubArticle")]
-        //[Authorize]
+        [ActionName("pubArticle")]
         public JsonResult PubArticle([FromBody] ArticleParam msg)
         {
             ReplyModel reply = new ReplyModel();
@@ -134,7 +133,7 @@ namespace Community.Api.Controllers.Articles
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("detail")]
+        [ActionName("articleDetail")]
         public JsonResult  ArticleDetail(string id)
         {
             ReplyModel reply = new ReplyModel();

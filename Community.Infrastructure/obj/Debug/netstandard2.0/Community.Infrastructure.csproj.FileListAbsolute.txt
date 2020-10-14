@@ -23,4 +23,3 @@ F:\Community.Api\Community.Api\Community.Infrastructure\obj\Debug\netstandard2.0
 F:\Community.Api\Community.Api\Community.Infrastructure\obj\Debug\netstandard2.0\Community.Infrastructure.AssemblyInfo.cs
 F:\Community.Api\Community.Api\Community.Infrastructure\obj\Debug\netstandard2.0\Community.Infrastructure.dll
 F:\Community.Api\Community.Api\Community.Infrastructure\obj\Debug\netstandard2.0\Community.Infrastructure.pdb
-F:\Community.Api\Community.Api\Community.Infrastructure\obj\Debug\netstandard2.0\Community.Infrastructure.csprojAssemblyReference.cache

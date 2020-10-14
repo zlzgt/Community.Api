@@ -124,18 +124,6 @@ namespace Community.Application.Services
             ReplyModel reply = new ReplyModel();
             try
             {
-                //int skip = (msg.PageIndex - 1) * msg.PageSize + 1;
-                //int end = msg.PageIndex * msg.PageSize;
-                //SqlParameter[] parameters = new[]{
-                //           new SqlParameter("@skip",SqlDbType.Int, skip),
-                //           new SqlParameter("@end",SqlDbType.Int,end)
-                //         };
-                //string sql = $@"select UserId,NickName,RowId
-                //                   from(select UserId, NickName, COUNT(UserId) As ArticleCount, ROW_NUMBER() OVER(ORDER BY Count(UserId) desc) as RowId
-                //                        from community_article
-                //                        where IsDraft ='1'
-                //                        group by UserId, NickName) as UserArticle
-                //                   where RowId between {skip} and {end}";
                 string mySql = $@"  select UserId,NickName
                                    from(select UserId, NickName, COUNT(UserId) As ArticleCount
                                         from community_article
@@ -163,14 +151,6 @@ namespace Community.Application.Services
             return reply;
         }
         #endregion
-
-
-
-        public string Test()
-        {
-            return "测试依赖注入";
-        }
-
        
     }
 }

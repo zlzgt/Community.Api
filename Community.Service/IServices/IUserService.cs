@@ -10,7 +10,6 @@ namespace Community.Application.IServices
 {
     public interface IUserService
     {
-        string Test();
         /// <summary>
         /// 用户登录
         /// </summary>
