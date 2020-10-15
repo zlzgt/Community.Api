@@ -36,3 +36,5 @@ F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0
 F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.dll
 F:\Community.Api\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.pdb
 F:\Community.Api\Community.Api\Community.Reposity.MySql\obj\Debug\netstandard2.0\Community.Reposity.MySql.csproj.CoreCompileInputs.cache
+D:\C#解决方案\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.dll
+D:\C#解决方案\Community.Api\Community.Reposity.MySql\bin\Debug\netstandard2.0\Community.Infrastructure.pdb
