@@ -438,6 +438,7 @@ F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.A
 F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.Api.MvcApplicationPartsAssemblyInfo.cs
 F:\Community.Api\Community.Api\Community.Api\obj\Debug\netcoreapp3.1\Community.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\Community.Api\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
+<<<<<<< HEAD
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\log4net.config
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\log4net.dll
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\log4net.AspNetCore.dll
@@ -520,3 +521,7 @@ D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\C#解决方案\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+=======
+F:\Community.Api\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\Dapper.dll
+F:\Community.Api\Community.Api\Community.Api\bin\Debug\netcoreapp3.1\netcoreapp3.1\MediatR.dll
+>>>>>>> 62234a6f2d53588b32cc843b3d84f693c0d2c509

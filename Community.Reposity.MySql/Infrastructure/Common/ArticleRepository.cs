@@ -1,4 +1,5 @@
 ﻿using Community.Domain;
+using Community.Domain.Model.Comments.Param;
 using Community.Domain.Model.Common.Interfaces;
 using Community.Domain.Model.Userers.Param;
 using Community.Infrastructure;
@@ -71,8 +72,6 @@ namespace Community.Reposity.MySql.Infrastructure.Common
         }
         #endregion
 
-
-
         #region 设置文章信息
         /// <summary>
         /// 设置文章信息
@@ -86,6 +85,8 @@ namespace Community.Reposity.MySql.Infrastructure.Common
         }
         #endregion
 
+
+    
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using Community.Domain.Model.Common.Interfaces;
+using Community.Domain.Model.Userers.Event;
 using Community.Domain.Model.Userers.Param;
 using Community.Infrastructure;
 using EInfrastructure.Core.Config.EntitiesExtensions;
@@ -7,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
+using System.Security.Policy;
 
 namespace Community.Domain
 {
@@ -73,7 +76,26 @@ namespace Community.Domain
 
 
 
- 
+
+        #region 注册修改用户发表文章数量
+
+
+        public static void RegisterEvent()
+        {
+            UserArticleEvent.AlterUserAritlceCountEvent.Add((serviceProvider, user) =>
+            {
+                Users users = serviceProvider.GetService<IUserRepository>().Get(user.Id);
+                if(users!=null)
+                {
+                    users.ArticleCount += 1;
+                }
+            });
+        }
+
+
+        #endregion
+
+
 
 
 

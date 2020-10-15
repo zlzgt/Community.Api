@@ -11,12 +11,14 @@ namespace Community.Domain.Model.Comments.Param
         /// 文章Id
         /// </summary>
         public string ArticleId { get; set; }
-
         /// <summary>
         /// 评论人Id
         /// </summary>
         public string UserId { get; set; }
-
+        /// <summary>
+        /// 评论人用户名
+        /// </summary>
+        public string UserName { get; set;}
         /// <summary>
         /// 评论内容
         /// </summary>

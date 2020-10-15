@@ -40,9 +40,9 @@ F:\Community.Api\Community.Api\Community.Service\bin\Debug\netstandard2.0\Commun
 F:\Community.Api\Community.Api\Community.Service\bin\Debug\netstandard2.0\Community.Infrastructure.pdb
 F:\Community.Api\Community.Api\Community.Service\bin\Debug\netstandard2.0\Community.Reposity.MySql.pdb
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.csprojAssemblyReference.cache
-F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.csproj.CoreCompileInputs.cache
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.AssemblyInfoInputs.cache
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.AssemblyInfo.cs
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.csproj.CopyComplete
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.dll
 F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.pdb
+F:\Community.Api\Community.Api\Community.Service\obj\Debug\netstandard2.0\Community.Application.csproj.CoreCompileInputs.cache

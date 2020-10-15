@@ -10,7 +10,6 @@ namespace Community.Application.IServices
 {
     public interface IUserService
     {
-        string Test();
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -24,7 +23,7 @@ namespace Community.Application.IServices
         /// <param name="userDto"></param>
         /// <param name="serviceProvider"></param>
         /// <returns></returns>
-        ReplyModel Register(RegisterUserDto userDto,IServiceProvider serviceProvider);
+        ReplyModel Register(RegisterUserInfo userDto,IServiceProvider serviceProvider);
 
         /// <summary>
         /// 注册人排序

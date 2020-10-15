@@ -20,19 +20,15 @@ namespace Community.Reposity.MySql.Map
             builder.HasKey(w => w.Id);
             builder.Property(w => w.Id).HasMaxLength(36);
 
-            builder.Property(w => w.UserName);
+            builder.Property(w => w.UserName).IsRequired();
             builder.Property(w => w.Email);
-            builder.Property(w => w.Password);
+            builder.Property(w => w.Password).IsRequired();
             builder.Property(w => w.NickName);
             builder.Property(w => w.Tel);
             builder.Property(w => w.AddTime);
 
 
-            // 配置用户一对多的关系 一个用户多个评论
-            builder.HasMany(w => w.Comments).WithOne(w => w.User).HasForeignKey(w => w.UserId).OnDelete(DeleteBehavior.Cascade);
-
-            // 配置一个用户对应多篇文章  一对多的关系
-            builder.HasMany(w => w.Articles).WithOne(w => w.User).HasForeignKey(w => w.UserId);
+         
         }
     }
 }

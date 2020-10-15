@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wsC9h6Ak+gSVM8D94DuG0y9a+uZqhiTsEsSWKgdQH+jHDEhM0PkyG3IZ6/xh1TnbP4uV1HVPIhCUz3cereVwrQ==",
+  "dgSpecHash": "RQAQLpCCWwU3HAWhHh4MM+0xHiOgq/4JiWL1UUv6QxiUhxLlfBf0NUR3CXuyWxkKqJL5h2z3KU4Yiuc12fZyPA==",
   "success": true,
   "projectFilePath": "D:\\C#解决方案\\Community.Api\\Community.Reposity.MySql\\Community.Reposity.MySql.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\11645\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
     "C:\\Users\\11645\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "C:\\Users\\11645\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\11645\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http\\2.1.1\\microsoft.aspnetcore.http.2.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",

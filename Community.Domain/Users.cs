@@ -1,4 +1,5 @@
-﻿using EInfrastructure.Core.Config.EntitiesExtensions;
+﻿
+using EInfrastructure.Core.Config.EntitiesExtensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,35 +9,30 @@ using System.Transactions;
 
 namespace Community.Domain
 {
-   /// <summary>
-   /// 用户信息
-   /// </summary>
+    /// <summary>
+    /// 用户信息
+    /// </summary>
     public partial class Users : AggregateRoot<string>
     {
         /// <summary>
         /// 用户名
         /// </summary>
-        [MaxLength(32), Required]
         public string UserName { get; private set; }
         /// <summary>
         /// 邮箱
         /// </summary>
-        [MaxLength(32), Required]
         public string Email { get; private set; }
         /// <summary>
         /// 密码
         /// </summary>
-        [MaxLength(64), Required]
         public string Password { get; private set; }
         /// <summary>
         /// 用户昵称
         /// </summary>
-        [MaxLength(64)]
         public string NickName { get; private set; }
         /// <summary>
         /// 用户电话
         /// </summary>
-        [MaxLength(11), Required]
         public string Tel { get; private set; }
         /// <summary>
         /// 添加时间
@@ -44,20 +40,16 @@ namespace Community.Domain
         public DateTime AddTime { get; private set; }
 
         /// <summary>
-        /// 用户评论
+        /// 发表文章数量
         /// </summary>
-        public virtual ICollection<Comment> Comments { get; set;} = new List<Comment>();
-        /// <summary>
-        ///  用户文章
-        /// </summary>
-        public virtual ICollection<Article> Articles { get; set; } = new List<Article>();
+        public int ArticleCount { get; private set; }
 
 
         public Users()
         {
             Id = Guid.NewGuid().ToString();
         }
-   
+
 
 
 

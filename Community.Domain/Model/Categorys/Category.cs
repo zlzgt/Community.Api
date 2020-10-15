@@ -22,16 +22,20 @@ namespace Community.Domain
         }
         #endregion
 
-        #region 设置分类信息
+        #region 添加分类信息
         /// <summary>
         /// 设置分析信息
         /// </summary>
         /// <param name="categoryRepository"></param>
         /// <param name=""></param>
         /// <returns></returns>
-        public bool Set(ICategoryRepository categoryRepository ,Category category)
+        public static bool Add(ICategoryRepository categoryRepository ,string title ,string description)
         {
-            return categoryRepository.Set(category);
+            Category newCategory = new Category();
+            newCategory.Title =title;
+            newCategory.Description =description;
+            newCategory.AddTime = DateTime.Now;         
+            return categoryRepository.Set(newCategory);
         }
 
         #endregion

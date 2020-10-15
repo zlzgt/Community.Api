@@ -26,7 +26,7 @@ namespace Community.Reposity.MySql
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=root;", w => w.MaxBatchSize(30));
+            optionsBuilder.UseMySql("Server=localhost;port=3306;database=Community;uid=root;pwd=root;", w => w.MaxBatchSize(30));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace Community.Reposity.MySql
             // <summary>
             /// mySql connection string
             /// </summary>
-            public string DbConn { get; set; } = "Server=localhost;port=3306;database=deyouyun_community_buy_dev;uid=root;pwd=root;";
+            public string DbConn { get; set; } = "Server=localhost;port=3306;database=Community;uid=root;pwd=root;";
 
             /// <summary>
             /// enable mysql log

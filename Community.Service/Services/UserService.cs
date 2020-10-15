@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Castle.Core.Logging;
 using Microsoft.Extensions.Logging;
+using Community.Reposity.MySql;
 
 namespace Community.Application.Services
 {
@@ -28,6 +29,10 @@ namespace Community.Application.Services
 
         //使用日志组件
         private readonly ILogger<UserService> _logger;
+
+
+
+     
 
         #endregion
         /// <summary>
@@ -74,7 +79,7 @@ namespace Community.Application.Services
         /// <param name="userDto"></param>
         /// <param name="serviceProvider"></param>
         /// <returns></returns>
-        public ReplyModel Register(RegisterUserDto userDto, IServiceProvider serviceProvider)
+        public ReplyModel Register(RegisterUserInfo userDto, IServiceProvider serviceProvider)
         {
             ReplyModel reply = new ReplyModel();
             if (userDto.Password == userDto.RepeatPassword)
@@ -119,18 +124,6 @@ namespace Community.Application.Services
             ReplyModel reply = new ReplyModel();
             try
             {
-                //int skip = (msg.PageIndex - 1) * msg.PageSize + 1;
-                //int end = msg.PageIndex * msg.PageSize;
-                //SqlParameter[] parameters = new[]{
-                //           new SqlParameter("@skip",SqlDbType.Int, skip),
-                //           new SqlParameter("@end",SqlDbType.Int,end)
-                //         };
-                //string sql = $@"select UserId,NickName,RowId
-                //                   from(select UserId, NickName, COUNT(UserId) As ArticleCount, ROW_NUMBER() OVER(ORDER BY Count(UserId) desc) as RowId
-                //                        from community_article
-                //                        where IsDraft ='1'
-                //                        group by UserId, NickName) as UserArticle
-                //                   where RowId between {skip} and {end}";
                 string mySql = $@"  select UserId,NickName
                                    from(select UserId, NickName, COUNT(UserId) As ArticleCount
                                         from community_article
@@ -158,14 +151,6 @@ namespace Community.Application.Services
             return reply;
         }
         #endregion
-
-
-
-        public string Test()
-        {
-            return "测试依赖注入";
-        }
-
        
     }
 }

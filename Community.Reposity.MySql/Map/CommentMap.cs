@@ -19,8 +19,8 @@ namespace Community.Reposity.MySql.Map
             builder.ToTable("Community_Comment");
             builder.HasKey(w => w.Id);
             builder.Property(w => w.Id).HasMaxLength(36);
-            builder.Property(w => w.Content);
-            builder.Property(w => w.UserId);
+            builder.Property(w => w.Content).IsRequired();
+            builder.Property(w => w.UserId).IsRequired();
             builder.Property(w => w.ParentId);
             builder.Property(w => w.CommentDate);
             builder.Property(w => w.AddTime);
