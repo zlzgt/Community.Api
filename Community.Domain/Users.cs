@@ -38,8 +38,13 @@ namespace Community.Domain
         /// 添加时间
         /// </summary>
         public DateTime AddTime { get; private set; }
-       
-       
+
+        /// <summary>
+        /// 发表文章数量
+        /// </summary>
+        public int ArticleCount { get; private set; }
+
+
         public Users()
         {
             Id = Guid.NewGuid().ToString();

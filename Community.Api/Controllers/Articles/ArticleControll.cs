@@ -14,6 +14,7 @@ using Community.Domain.Model.Articles.Param;
 using EInfrastructure.Core.Config.Entities.Data;
 using Community.Application.ApiModel;
 using Community.Api.Models.Articles;
+using Community.Domain.Model.Userers.Event;
 
 namespace Community.Api.Controllers.Articles
 {
@@ -28,7 +29,6 @@ namespace Community.Api.Controllers.Articles
         private readonly IArticleRepository _articleRepository;
 
         private readonly IUserRepository _userRepository;
-
 
         private readonly ICommentRepository _commentRepository;
 
@@ -76,6 +76,7 @@ namespace Community.Api.Controllers.Articles
                 {
                     msg.Password = MD5Encrypt.Encrypt(msg.Password);
                     Article.Add(_articleRepository, msg);
+                    UserArticleEventExtend.TriggerAlterUserAritlceCountEvent(users,ServiceProvider);
                     bool result = ServiceProvider.GetService<IUnitOfWork>().Commit();
                     if (result)
                     {

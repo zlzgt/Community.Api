@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Abp" Version="5.13.0" />
     <PackageReference Include="EInfrastructure.Core.Config.EntitiesExtensions" Version="2.0.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

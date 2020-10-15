@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lDPCnKwvIcyrEiXrH2Z43ZRAcS1EMBtmnoDH+atRtgssAG34RzBk/VijuyxQZIYNDr9q1yg0vmGvQf0tvFwV0g==",
+  "dgSpecHash": "GtztSvJE9Zt+m46DPqKKZTfv4GpO6iqwllflAnwe6QdFWmILpHCGnvHcGA/AsAljZ02GU/fHPT6WCttPA2h1Ww==",
   "success": true,
   "projectFilePath": "F:\\Community.Api\\Community.Api\\Community.Domain\\Community.Domain.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

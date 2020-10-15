@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OKUzarunC1bTTL4EfKYyBekZx4J3Mz8aULUzI0d5FvO++AjaeEcTh2TVQNsj4PI/4pbwRgxCM4B262N8cD/DvA==",
+  "dgSpecHash": "Tl/r7ExSPDb8BYxqyqsdsCrUOSKb72BUZHSj3poPSDOJosRM18bcu9q5VuUX1SKKygukaFoS7zlqsiA6GvzJuw==",
   "success": true,
   "projectFilePath": "F:\\Community.Api\\Community.Api\\Community.Api\\Community.Api.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\log4net\\2.0.11\\log4net.2.0.11.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\log4net.aspnetcore\\1.0.0\\log4net.aspnetcore.1.0.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http\\2.1.1\\microsoft.aspnetcore.http.2.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",

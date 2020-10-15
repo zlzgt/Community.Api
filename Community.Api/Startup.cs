@@ -23,7 +23,7 @@ namespace Community.Api
     /// </summary>
     public class Startup
     {
-      
+
         /// <summary>
         /// 注册服务到容器
         /// </summary>
@@ -34,9 +34,9 @@ namespace Community.Api
 
 
             //这里就是填写数据库的连接字符串
-             var connection =ConfigurationManagerHelper.conn;
-             services.AddDbContext<CommunityDbContext>(options => options.UseMySql(connection,
-              p => p.MigrationsAssembly("Community.Domain")));
+            var connection = ConfigurationManagerHelper.conn;
+            services.AddDbContext<CommunityDbContext>(options => options.UseMySql(connection,
+             p => p.MigrationsAssembly("Community.Domain")));
 
             // 使用Swagger
             services.AddSwaggerGen(c =>
@@ -46,6 +46,11 @@ namespace Community.Api
                 // include document file
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{typeof(Startup).Assembly.GetName().Name}.xml"), true);
             });
+
+            //注册领域事件
+            DomainEvent.Register();
+
+
         }
 
         /// <summary>
@@ -79,7 +84,7 @@ namespace Community.Api
             });
 
             app.UseRouting();
-            
+
             //允许跨域
             app.UseCors();
 
